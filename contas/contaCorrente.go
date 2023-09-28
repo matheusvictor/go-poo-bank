@@ -3,10 +3,9 @@ package contas
 import "alura/go-poo-bank/clientes"
 
 type ContaCorrente struct {
-	Titular clientes.Titular // atributos iniciando com letras maiúsculas "equivale" à vibilidade
-	Agencia int
-	Conta   int
-	saldo   float64
+	Titular        clientes.Titular // atributos iniciando com letras maiúsculas "equivale" à vibilidade
+	Agencia, Conta int
+	saldo          float64
 }
 
 func (c *ContaCorrente) ConsultarSaldo() float64 {
