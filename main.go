@@ -9,6 +9,15 @@ type ContaCorrente struct {
 	saldo   float64
 }
 
+func (c *ContaCorrente) Sacar(valor float64) string {
+	podeSacar := valor > 0 && valor <= c.saldo
+	if podeSacar {
+		c.saldo -= valor
+		return "Saque realizado com sucesso!"
+	}
+	return "Saldo insuficiente!"
+}
+
 func main() {
 	conta := ContaCorrente{
 		titular: "Fulano",
@@ -25,12 +34,8 @@ func main() {
 	}
 
 	fmt.Println(conta, conta2)
-
-	var conta3 *ContaCorrente
-	fmt.Println(conta3)
-	conta3 = new(ContaCorrente)
-	conta3.titular = "Cris"
-	fmt.Println("Conteúdo NO endereço de memória: ", conta3)
-	fmt.Println("Conteúdo DO endereço de memória: ", *conta3)
+	fmt.Println(conta.saldo, conta.Sacar(600))
+	fmt.Println(conta.saldo, conta.Sacar(-100))
+	fmt.Println(conta.saldo, conta.Sacar(100))
 
 }
