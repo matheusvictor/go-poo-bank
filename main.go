@@ -16,8 +16,9 @@ func main() {
 		},
 		Agencia: 001,
 		Conta:   1234,
-		Saldo:   250000.0,
 	}
+
+	fmt.Println(conta.ConsultarSaldo())
 
 	titular := clientes.Titular{
 		Nome:      "Dr. Estranho",
@@ -29,7 +30,6 @@ func main() {
 		Titular: titular,
 		Agencia: 002,
 		Conta:   4444,
-		Saldo:   0,
 	}
 
 	fmt.Println(conta, conta2)
