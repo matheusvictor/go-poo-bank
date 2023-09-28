@@ -1,35 +1,37 @@
 package main
 
 import (
-	"alura/go-poo-bank/contas"
 	"fmt"
+
+	"alura/go-poo-bank/clientes"
+	"alura/go-poo-bank/contas"
 )
 
 func main() {
 	conta := contas.ContaCorrente{
-		Titular: "Fulano",
+		Titular: clientes.Titular{
+			Nome:      "Peter Parker",
+			Cpf:       "1234.456.789-00",
+			Profissao: "Homem-aranha",
+		},
 		Agencia: 001,
 		Conta:   1234,
-		Saldo:   100.50,
+		Saldo:   250000.0,
+	}
+
+	titular := clientes.Titular{
+		Nome:      "Dr. Estranho",
+		Cpf:       "0000.1111.2222-33",
+		Profissao: "Doutor, só que estranho",
 	}
 
 	conta2 := contas.ContaCorrente{
-		"Beltrano",
-		001,
-		5678,
-		100.50,
+		Titular: titular,
+		Agencia: 002,
+		Conta:   4444,
+		Saldo:   0,
 	}
 
 	fmt.Println(conta, conta2)
-	fmt.Println(conta.Saldo, conta.Sacar(600))
-	fmt.Println(conta.Saldo, conta.Sacar(-100))
-	fmt.Println(conta.Saldo, conta.Sacar(100))
-
-	fmt.Println(conta2.Saldo)
-	mensagem, valor := conta2.Depositar(600)
-	fmt.Println(mensagem, valor)
-
-	statusTransferencia := conta2.Transferir(200, &conta)
-	fmt.Println(statusTransferencia, conta, conta2)
 
 }
