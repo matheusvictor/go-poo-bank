@@ -3,9 +3,9 @@ package contas
 import "alura/go-poo-bank/clientes"
 
 type ContaPoupanca struct {
-	Titular                 clientes.Titular
-	Agenca, Conta, Operacao int
-	saldo                   float64
+	Titular                  clientes.Titular
+	Agencia, Conta, Operacao int
+	saldo                    float64
 }
 
 func (c *ContaPoupanca) ConsultarSaldo() float64 {
