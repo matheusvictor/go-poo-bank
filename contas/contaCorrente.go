@@ -1,7 +1,9 @@
 package contas
 
+import "alura/go-poo-bank/clientes"
+
 type ContaCorrente struct {
-	Titular string // atributos iniciando com letras maiúsculas "equivale" à vibilidade
+	Titular clientes.Titular // atributos iniciando com letras maiúsculas "equivale" à vibilidade
 	Agencia int
 	Conta   int
 	Saldo   float64
