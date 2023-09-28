@@ -26,4 +26,11 @@ func main() {
 
 	fmt.Println(conta, conta2)
 
+	var conta3 *ContaCorrente
+	fmt.Println(conta3)
+	conta3 = new(ContaCorrente)
+	conta3.titular = "Cris"
+	fmt.Println("Conteúdo NO endereço de memória: ", conta3)
+	fmt.Println("Conteúdo DO endereço de memória: ", *conta3)
+
 }
