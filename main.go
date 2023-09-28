@@ -26,6 +26,17 @@ func (c *ContaCorrente) Depositar(valor float64) (string, float64) {
 	return "Depósito inválido! Saldo atual: R$", c.saldo
 }
 
+func (c *ContaCorrente) Transferir(valor float64, contaDestino *ContaCorrente) bool {
+	podeTransferir := valor > 0 && valor <= c.saldo
+
+	if podeTransferir {
+		c.saldo -= valor
+		contaDestino.Depositar(valor)
+	}
+
+	return podeTransferir
+}
+
 func main() {
 	conta := ContaCorrente{
 		titular: "Fulano",
@@ -49,5 +60,8 @@ func main() {
 	fmt.Println(conta2.saldo)
 	mensagem, valor := conta2.Depositar(600)
 	fmt.Println(mensagem, valor)
+
+	statusTransferencia := conta2.Transferir(200, &conta)
+	fmt.Println(statusTransferencia, conta, conta2)
 
 }
